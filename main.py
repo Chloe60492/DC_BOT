@@ -12,6 +12,7 @@ class MyCommandBot(commands.Bot):
         super().__init__(*args, **kwargs)
 
     async def on_ready(self):
+        print("Bot is online!")
         print('Logged in as {0} ({0.id})'.format(self.user))
 
     async def on_message(self, message: discord.Message, /) -> None:
