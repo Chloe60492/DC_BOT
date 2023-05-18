@@ -7,7 +7,7 @@ from discord.ext.commands.context import Context
 ########
 
 class Basic(commands.Cog):
-    def __init__(self, bot: commands.Bot):
+    def __init__(self, bot: commands.Bot):  #參數: 參數註解(轉換參數的型態)
         self.bot = bot
         self._last_member = None
 
@@ -22,15 +22,16 @@ class Basic(commands.Cog):
         self._last_member = member
     
     @commands.command()
-    async def say(self, ctx: Context, *args):
-        await ctx.send("{}".format(" ".join(args)))
+    async def say(self, ctx: Context, *, s: str):
+        await ctx.send(s)
         
     @commands.command()
     async def prefix(self, ctx: Context, s: str):
-        # [TODO]
-        pass
+        new_prefix = s
+        await ctx.prefix(new_prefix)
 
     @commands.command()
-    async def GPA(self, ctx: Context, *, s: str = ""):
+    async def GPA(self, ctx: Context, *, s: str = ""): 
+        # *: 代表後面的參數不管有多少個都可以，因此可以解決空格問題
         # [TODO]
         pass

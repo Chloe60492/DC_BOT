@@ -8,8 +8,13 @@ import discord
 from basic_feature import Basic
 
 class MyCommandBot(commands.Bot):
+    # 初始化，*args: 參數，**kwargs: 關鍵字參數
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        ''' 這裡的super()意指把父層(parent)commands.Bot的設定再進行初始化一次
+            如果不這麼做的話，這邊的(child)初始化會把父層設定蓋掉
+            因此這一行程式碼等同於父層的初始化
+        '''
 
     async def on_ready(self):
         print("Bot is online!")
