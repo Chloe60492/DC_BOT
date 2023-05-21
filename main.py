@@ -7,6 +7,7 @@ import discord
 
 from basic_feature import Basic
 
+
 class MyCommandBot(commands.Bot):
     # 初始化，*args: 參數，**kwargs: 關鍵字參數
     def __init__(self, *args, **kwargs):
@@ -33,6 +34,7 @@ async def create_bot():
     bot = MyCommandBot(command_prefix='!', intents=intents)
 
     await bot.add_cog( Basic(bot) )
+    # await bot.add_cog( Extra(bot) )
 
     return bot
 
