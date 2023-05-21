@@ -1,12 +1,126 @@
+from typing import Optional, Union
 import discord
+from discord.emoji import Emoji
+from discord.enums import ButtonStyle
 from discord.ext import commands
 from discord.ext.commands.context import Context
-import typing
+from discord.partial_emoji import PartialEmoji
+from discord.ui import Button, View  #要額外import的
 
-
-class Extra(commands.Bot):
+class Listener(commands.Cog):
+    def __init__(self, bot: commands.Bot):  #參數: 參數註解(轉換參數的型態)
+        self.bot = bot
+        
+    @commands.Cog.listener()
+    async def on_message(self, massage):
+        if massage.content == 'thanks' or massage.content == 'thank you':
+            await massage.add_reaction('\U0001F917')
+            
+    @commands.Cog.listener()
+    async def on_message_edit(self, before, after):
+        await before.channel.send(
+            f'before: {before.author} edit a message.\n'
+            f'before: {before.content}\n'
+            f'after: {after.content}'
+        )
+class Extra(commands.Cog):
     def __init__(self, bot: commands.Bot):  #參數: 參數註解(轉換參數的型態)
         self.bot = bot
     @commands.command()
-    async def union(ctx, what: typing.Union[discord.TextChannel, discord.Member]):
-        await ctx.send(what)
+    async def helper(self, ctx:Context):
+        embed = discord.Embed(
+            title='BOT COMMANDS',
+            description='Welcome! This is help section. Here are all the aommands.',
+            color=discord.Colour.blue()
+        )
+        embed.set_thumbnail(url='https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/282194066/original/a77044363ee19df78b11600281de6dc2795ae806/do-telegram-bots-of-varying-complexity.png')
+        embed.add_field(
+            name='!helper',
+            value='List all of the commands',
+            inline=False
+        )
+        embed.add_field(
+            name='!hello',
+            value='Greeting',
+            inline=False
+        )
+        embed.add_field(
+            name='!say',
+            value='Repeat what you said',
+            inline=False
+        )
+        embed.add_field(
+            name='!prefix',
+            value='Custom prefix',
+            inline=False
+        )
+        embed.add_field(
+            name='!GPA',
+            value='Calculate the GPA averge for the grades sequence',
+            inline=False
+        )
+        embed.add_field(
+            name='!food',
+            value='Give you common food delivery websites',
+            inline=False
+        )
+        embed.add_field(
+            name='!food',
+            value='Give you common online shopping websites',
+            inline=False
+        )
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    async def food(self, ctx: Context):
+        button1 = Button(label="Foodpanda", style=discord.ButtonStyle.link, url="https://reurl.cc/qLzDrg", emoji='🐼')
+        button2 = Button(label="UberEats", style=discord.ButtonStyle.link, url="https://reurl.cc/2LM4EE", emoji='🛵')
+        view = View()
+        view.add_item(button1)
+        view.add_item(button2)
+        await ctx.send("I recommend the following websites.", view=view)
+    @commands.command()
+    async def shop(self, ctx: Context):
+        button1 = Button(label="Shopee", style=discord.ButtonStyle.link, url="https://reurl.cc/kXN5nx", emoji='1️⃣')
+        button2 = Button(label="PChome", style=discord.ButtonStyle.link, url="https://reurl.cc/gDkvYQ", emoji='2️⃣')
+        button3 = Button(label="MOMO", style=discord.ButtonStyle.link, url="https://reurl.cc/94oznY", emoji='3️⃣')
+        view = View()
+        view.add_item(button1)
+        view.add_item(button2)
+        view.add_item(button3)
+        await ctx.send("I recommend the following websites.", view=view)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 根據回覆的emoji給予不同的身分
+'''
+    @commands.Cog.listener()
+    async def on_raw_reaction_add(self, ctx: Context, payload):        
+        # self.target_massage_id = 1109724337109471292
+        # if payload.message_id != self.target_message_id:
+        #     return 
+        # guild = client.get_guild(payload.guild_id)
+        guild_id = payload.guild_id
+        if payload.emoji.name == '😎':
+            role = discord.utils.get(guild.roles, name='King')
+            await payload.member.add.roles(role)
+        elif payload.emoji.name == '🥸':
+            role = discord.utils.get(guild.roles, name='Boss')
+            await payload.member.add.roles(role)
+        elif payload.emoji.name == '🥰':
+            role = discord.utils.get(guild.roles, name='Queen')
+            await payload.member.add.roles(role)
+'''    

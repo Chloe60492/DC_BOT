@@ -6,7 +6,10 @@ from discord.ext import commands
 import discord
 
 from basic_feature import Basic
-
+from extra_feature import Listener, Extra
+#要額外import的
+from discord.ui import Button, View
+import random  
 
 class MyCommandBot(commands.Bot):
     # 初始化，*args: 參數，**kwargs: 關鍵字參數
@@ -16,6 +19,7 @@ class MyCommandBot(commands.Bot):
             如果不這麼做的話，這邊的(child)初始化會把父層設定蓋掉
             因此這一行程式碼等同於父層的初始化
         '''
+        # self.target_massage_id = 1109724337109471292
 
     async def on_ready(self):
         print("Bot is online!")
@@ -34,8 +38,8 @@ async def create_bot():
     bot = MyCommandBot(command_prefix='!', intents=intents)
 
     await bot.add_cog( Basic(bot) )
-    # await bot.add_cog( Extra(bot) )
-
+    await bot.add_cog( Extra(bot) )
+    await bot.add_cog( Listener(bot) )
     return bot
 
 def main():
