@@ -32,12 +32,14 @@
     * Bot reply: 
         * The first greeting: `Hello {member.name}~`
         * Not the first greeting: `Hello {member.name}... This feels familiar.`
-    * Example: ![image](./image/hello.png)
+    * Example: 
+        ![image](./image/hello.png)
 
 * `!say`
     * Input: `!say "any word you want to say"`
     * Bot reply: repeat your words
-    * Example:![](./image/say.png)
+    * Example:
+        ![](./image/say.png)
 
 * `!prefix`
     * Input: `!prefix "any punctuation"`
