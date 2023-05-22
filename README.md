@@ -32,12 +32,12 @@
     * Bot reply: 
         * The first greeting: `Hello {member.name}~`
         * Not the first greeting: `Hello {member.name}... This feels familiar.`
-    * Example: ![](https://hackmd.io/_uploads/rJT3l9Orn.png)
+    * Example: ![image](./image/hello.png)
 
 * `!say`
     * Input: `!say "any word you want to say"`
     * Bot reply: repeat your words
-    * Example:![](https://hackmd.io/_uploads/ByE-Z5drh.png)
+    * Example:![](./image/say.png)
 
 * `!prefix`
     * Input: `!prefix "any punctuation"`
@@ -45,13 +45,13 @@
         * `Command prefix has been set to "{new_prefix}"`
         * Then, we need to use new prefix to type all commands
     * Example: 
-        ![](https://hackmd.io/_uploads/r1hXb9dH3.png)
+        ![](./image/prefix.png)
 
 * `!GPA`
     * Input: `!GPA "grading sequence with space between two grade "`
     * Bot reply: Calculate the average of the grading sequece we provided
     * Example:
-        ![](https://hackmd.io/_uploads/S1VnJcOr3.png)
+        ![](./image/GPA.png)
 
 
 #### Extra features
@@ -61,23 +61,23 @@
         * randomly reply something like "You're welcome!"
         * react to our words with emoji🤗
     * Example:
-        ![](https://hackmd.io/_uploads/By19_cdHn.png)
+        ![](./image/thank.png)
 
 * `!helper`
     * Input: `!helper`
     * Bot reply: show all commands of the bot and how they work with embed messages
     * Example:
-        ![](https://hackmd.io/_uploads/ByIuq5dr2.png)
-![](https://hackmd.io/_uploads/ByxK5qdr3.png)
+        ![](./image/helper1.png)
+        ![](./image/helper2.png)
 
 * `!food`
     * Input:`!food`
     * Bot reply: provide two button link to two common food delivery websites
     * Example:
-        ![](https://hackmd.io/_uploads/rkK-VsOBh.png)
+        ![](./image/food.png)
 
 * `!shop`
     * Input:`!shop`
     * Bot reply: provide three button link to two common online shopping websites
     * Example:
-        ![](https://hackmd.io/_uploads/BkZ7NsOBn.png)
+        ![](./image/shop.png)
