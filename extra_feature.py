@@ -5,16 +5,25 @@ from discord.enums import ButtonStyle
 from discord.ext import commands
 from discord.ext.commands.context import Context
 from discord.partial_emoji import PartialEmoji
-from discord.ui import Button, View  #要額外import的
+#要額外import的
+from discord.ui import Button, View  
+import random
+
+
+########
+# Extra Bot Features
+########
 
 class Listener(commands.Cog):
     def __init__(self, bot: commands.Bot):  #參數: 參數註解(轉換參數的型態)
         self.bot = bot
         
     @commands.Cog.listener()
-    async def on_message(self, massage):
-        if massage.content == 'thanks' or massage.content == 'thank you':
-            await massage.add_reaction('\U0001F917')
+    async def on_message(self, message):
+        if message.content == 'thanks' or message.content == 'thank you':
+            response = ["Anytime!", "No worries.", "You're welcome.", "Sure, no problem!"]
+            await message.add_reaction('\U0001F917')
+            await message.reply(random.choice(response)) 
             
     @commands.Cog.listener()
     async def on_message_edit(self, before, after):
@@ -23,6 +32,7 @@ class Listener(commands.Cog):
             f'before: {before.content}\n'
             f'after: {after.content}'
         )
+
 class Extra(commands.Cog):
     def __init__(self, bot: commands.Bot):  #參數: 參數註解(轉換參數的型態)
         self.bot = bot
