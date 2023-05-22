@@ -20,7 +20,8 @@ class Listener(commands.Cog):
         
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.content == 'thanks' or message.content == 'thank you':
+        content = message.content.lower()
+        if 'thanks' in content or 'thank' in content or 'thx' in content:
             response = ["Anytime!", "No worries.", "You're welcome.", "Sure, no problem!"]
             await message.add_reaction('\U0001F917')
             await message.reply(random.choice(response)) 
