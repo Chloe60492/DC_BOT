@@ -56,13 +56,3 @@ class Basic(commands.Cog):
         grades_list = grades.split()
         gpa = calculate_gpa(grades_list)
         await ctx.send(gpa)
-     
-
-'''
-class Extra(commands.Cog):
-    def __init__(self, bot: commands.Bot):  #參數: 參數註解(轉換參數的型態)
-        self.bot = bot
-    @commands.command()
-    async def union(self , ctx: Context, what: typing.Union[discord.TextChannel, discord.Member]):
-        await ctx.send(what)
-'''
