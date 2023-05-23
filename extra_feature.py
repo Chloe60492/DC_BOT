@@ -1,10 +1,10 @@
-from typing import Optional, Union
+
 import discord
 from discord.emoji import Emoji
 from discord.enums import ButtonStyle
 from discord.ext import commands
 from discord.ext.commands.context import Context
-from discord.partial_emoji import PartialEmoji
+
 #要額外import的
 from discord.ui import Button, View  
 import random
