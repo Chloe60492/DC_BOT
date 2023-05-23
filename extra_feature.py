@@ -29,7 +29,7 @@ class Listener(commands.Cog):
     @commands.Cog.listener()
     async def on_message_edit(self, before, after):
         await before.channel.send(
-            f'before: {before.author} edit a message.\n'
+            f'{before.author} edit a message.\n'
             f'before: {before.content}\n'
             f'after: {after.content}'
         )
@@ -99,39 +99,4 @@ class Extra(commands.Cog):
         view.add_item(button1)
         view.add_item(button2)
         view.add_item(button3)
-        await ctx.send("I recommend the following websites.", view=view)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 根據回覆的emoji給予不同的身分
-'''
-    @commands.Cog.listener()
-    async def on_raw_reaction_add(self, ctx: Context, payload):        
-        # self.target_massage_id = 1109724337109471292
-        # if payload.message_id != self.target_message_id:
-        #     return 
-        # guild = client.get_guild(payload.guild_id)
-        guild_id = payload.guild_id
-        if payload.emoji.name == '😎':
-            role = discord.utils.get(guild.roles, name='King')
-            await payload.member.add.roles(role)
-        elif payload.emoji.name == '🥸':
-            role = discord.utils.get(guild.roles, name='Boss')
-            await payload.member.add.roles(role)
-        elif payload.emoji.name == '🥰':
-            role = discord.utils.get(guild.roles, name='Queen')
-            await payload.member.add.roles(role)
-'''    
+        await ctx.send("I recommend the following websites.", view=view)    

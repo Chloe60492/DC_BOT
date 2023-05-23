@@ -65,6 +65,15 @@
     * Example:
         ![](./image/thank.png)
 
+* use `on_message_edit` to monitor message edit history
+    * Input: any message that we changed after we had sent it already
+    * Bot reply: 
+        * who edit a message.
+        * before: message we had not changed
+        * after: message we had changed
+    * Example:
+        ![](./image/edit.png)
+
 * `!helper`
     * Input: `!helper`
     * Bot reply: show all commands of the bot and how they work with embed messages
