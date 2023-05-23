@@ -76,7 +76,7 @@ class Extra(commands.Cog):
             inline=False
         )
         embed.add_field(
-            name='!food',
+            name='!shop',
             value='Give you common online shopping websites',
             inline=False
         )
